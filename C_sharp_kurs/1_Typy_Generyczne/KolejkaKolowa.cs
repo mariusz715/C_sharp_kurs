@@ -53,7 +53,7 @@ namespace _1_Typy_Generyczne
             }
 
         }
-
+  
         public bool pusty
         {
             get
