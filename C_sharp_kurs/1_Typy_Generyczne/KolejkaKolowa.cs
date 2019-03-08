@@ -53,7 +53,13 @@ namespace _1_Typy_Generyczne
             }
 
         }
-  
+        public bool pelny
+        {
+            get
+            {
+                return (koniec_bufora + 1) % bufor.Length == poczatek_bufora;
+            }
+        }
         public bool pusty
         {
             get
