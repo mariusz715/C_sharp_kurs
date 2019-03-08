@@ -26,9 +26,38 @@ namespace _1_Typy_Generyczne_Tests
             kolejka.zapis(wartosc2);
             kolejka.zapis(wartosc3);
 
-            Assert.IsTrue(kolejka.pel)
+            Assert.IsTrue(kolejka.pelny);
+        }
+        [TestMethod]
+        public void CzyCzytaOdPoczatku()
+        {
+            var kolejka = new KolejkaKolowa(pojemnosc: 3);
+            var wartosc1 = 3.2444;
+            var wartosc2 = 0.66;
+            var wartosc3 = 6.11;
 
-            Assert.IsTrue(kolejka.pusty);
+            kolejka.zapis(wartosc1);
+            kolejka.zapis(wartosc2);
+            kolejka.zapis(wartosc3);
+
+            Assert.AreEqual(wartosc1, kolejka.Wypisz());
+            Assert.AreEqual(wartosc2, kolejka.Wypisz());
+            Assert.AreEqual(wartosc3, kolejka.Wypisz());
+        }
+        [TestMethod]
+        public void CzyNadpisuje()
+        {
+            var kolejka = new KolejkaKolowa(pojemnosc: 3);
+            var wartosci = new[] { 1, 2, 3, 5.32, 9.32, 12.07 };
+            
+            foreach( var wartosc in wartosci)
+            {
+                kolejka.zapis(wartosc);
+            }
+
+            Assert.AreEqual(wartosci[3], kolejka.Wypisz());
+            Assert.AreEqual(wartosci[4], kolejka.Wypisz());
+            Assert.AreEqual(wartosci[5], kolejka.Wypisz());
         }
     }
 }
