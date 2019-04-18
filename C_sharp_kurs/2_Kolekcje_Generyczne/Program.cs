@@ -45,10 +45,25 @@ namespace _2_Kolekcje_Generyczne
             szereg.Enqueue(new Pracownik { imie = "EF", nazwisko = "GH" });
             szereg.Enqueue(new Pracownik { imie = "IJ", nazwisko = "KL" });
             szereg.Enqueue(new Pracownik { imie = "MN", nazwisko = "OP" });
-
+            Console.WriteLine("To jest kolejka");
             while (szereg.Count() > 0)
             {
                 var osoba = szereg.Dequeue();
+                Console.WriteLine(osoba.imie + " " + osoba.nazwisko);
+
+
+            }
+            Console.WriteLine();
+
+            Stack<Pracownik> stos = new Stack<Pracownik>();
+            stos.Push(new Pracownik { imie = "AB", nazwisko = "CD" });
+            stos.Push(new Pracownik { imie = "EF", nazwisko = "GH" });
+            stos.Push(new Pracownik { imie = "IJ", nazwisko = "KL" });
+            stos.Push(new Pracownik { imie = "MN", nazwisko = "OP" });
+            Console.WriteLine("To jest stos");
+            while (stos.Count() > 0)
+            {
+                var osoba = stos.Pop();
                 Console.WriteLine(osoba.imie + " " + osoba.nazwisko);
 
 
