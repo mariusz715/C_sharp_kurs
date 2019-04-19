@@ -40,21 +40,32 @@ namespace _2_Kolekcje_Generyczne
                 }
             }*/
 
-            Queue<Pracownik> szereg = new Queue<Pracownik>();
-            szereg.Enqueue(new Pracownik { imie = "AB", nazwisko = "CD" });
-            szereg.Enqueue(new Pracownik { imie = "EF", nazwisko = "GH" });
-            szereg.Enqueue(new Pracownik { imie = "IJ", nazwisko = "KL" });
-            szereg.Enqueue(new Pracownik { imie = "MN", nazwisko = "OP" });
-            Console.WriteLine("To jest kolejka");
-            while (szereg.Count() > 0)
-            {
-                var osoba = szereg.Dequeue();
-                Console.WriteLine(osoba.imie + " " + osoba.nazwisko);
+            // Szereg();
+            // Stos();
 
+
+            hash();
+
+        }
+
+        private static void hash()
+        {
+            HashSet<Pracownik> set = new HashSet<Pracownik>();
+            var osoba = new Pracownik { imie = "AVB" };
+            set.Add(osoba);
+            set.Add(osoba);
+            set.Add(new Pracownik { imie = "AW" });
+
+            foreach (var m in set)
+            {
+                Console.WriteLine(m.imie);
 
             }
-            Console.WriteLine();
+            Console.ReadKey();
+        }
 
+        private static void Stos()
+        {
             Stack<Pracownik> stos = new Stack<Pracownik>();
             stos.Push(new Pracownik { imie = "AB", nazwisko = "CD" });
             stos.Push(new Pracownik { imie = "EF", nazwisko = "GH" });
@@ -72,8 +83,22 @@ namespace _2_Kolekcje_Generyczne
             Console.ReadKey();
         }
 
+        private static void Szereg()
+        {
+            Queue<Pracownik> szereg = new Queue<Pracownik>();
+            szereg.Enqueue(new Pracownik { imie = "AB", nazwisko = "CD" });
+            szereg.Enqueue(new Pracownik { imie = "EF", nazwisko = "GH" });
+            szereg.Enqueue(new Pracownik { imie = "IJ", nazwisko = "KL" });
+            szereg.Enqueue(new Pracownik { imie = "MN", nazwisko = "OP" });
+            Console.WriteLine("To jest kolejka");
+            while (szereg.Count() > 0)
+            {
+                var osoba = szereg.Dequeue();
+                Console.WriteLine(osoba.imie + " " + osoba.nazwisko);
 
 
-
+            }
+            Console.WriteLine();
+        }
     }
 }
