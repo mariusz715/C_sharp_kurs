@@ -42,10 +42,43 @@ namespace _2_Kolekcje_Generyczne
 
             // Szereg();
             // Stos();
+            //hash();
+            // Linkedlist();
 
+            LinkedList<int> lista = new LinkedList<int>();
+            lista.AddFirst(1);
+            lista.AddFirst(2);
+            lista.AddFirst(3);
 
-            hash();
+            var a = lista.First;
 
+            lista.AddAfter(a, 9);
+            lista.AddBefore(a, 6);
+
+            var p = lista.First;
+            while (p != null)
+            {
+                Console.WriteLine(p.Value);
+                p = p.Next;
+            }
+            Console.ReadKey();
+        }
+
+        private static void Linkedlist()
+        {
+            LinkedList<int> lista = new LinkedList<int>();
+            lista.AddFirst(1);
+            lista.AddFirst(2);
+            lista.AddFirst(3);
+            lista.AddLast(4);
+            lista.AddLast(5);
+
+            foreach (var i in lista)
+            {
+                Console.WriteLine(i);
+
+            }
+            Console.ReadKey();
         }
 
         private static void hash()
