@@ -11,21 +11,21 @@ namespace _2_Kolekcje_Generyczne
         static void Main(string[] args)
 
         {
-         /*  List< Pracownik> pracownicy = new List<Pracownik>
-            {
-                new Pracownik{imie ="krol",nazwisko="AVB"  },
-                new Pracownik{imie ="pop",nazwisko="AVB"  },
-                new Pracownik{imie ="koks",nazwisko="AVB"  },
+            /*  List< Pracownik> pracownicy = new List<Pracownik>
+               {
+                   new Pracownik{imie ="krol",nazwisko="AVB"  },
+                   new Pracownik{imie ="pop",nazwisko="AVB"  },
+                   new Pracownik{imie ="koks",nazwisko="AVB"  },
 
-        };
-            foreach(var praca in pracownicy)
-            {
+           };
+               foreach(var praca in pracownicy)
+               {
 
-                Console.WriteLine(praca.imie + " " + praca.nazwisko);
-               
-            }*/
-         //Array.Resize(ref pracownicy, 4);---Tyko da tabic
-         //pracownicy[3] = new Pracownik{ imie="XX",nazwisko="AVB"};
+                   Console.WriteLine(praca.imie + " " + praca.nazwisko);
+
+               }*/
+            //Array.Resize(ref pracownicy, 4);---Tyko da tabic
+            //pracownicy[3] = new Pracownik{ imie="XX",nazwisko="AVB"};
 
             /*
             var znak = new List <int>();
@@ -45,26 +45,64 @@ namespace _2_Kolekcje_Generyczne
             //hash();
             // Linkedlist();
             //Linkedlist1();
+            //slownik();
 
-            Dictionary<string,Pracownik> ludzie = new Dictionary<string, Pracownik>();
 
-            ludzie.Add("Kowal",new Pracownik{nazwisko="Kowal",imie="Jan"});
-            ludzie.Add("Kowalski",new Pracownik{nazwisko="Kowalski",imie="Piotr"});
-            ludzie.Add("Kowalczyk",new Pracownik{nazwisko="Kowalczyk",imie="Tomasz"});
-
-           var sb=ludzie["Kowalski"];
-
-            foreach (var a in ludzie){
+           
             
-            Console.WriteLine("{0} - {1} {2}",a.Key,a.Value.nazwisko,a.Value.imie);
+
+                Dictionary<string, List<Pracownik>> ludzie = new Dictionary<string, List<Pracownik>>();
+
+            ludzie.Add("Sala", new List<Pracownik>(){new Pracownik{nazwisko="Nowak",imie="Piotr" },
+                                                           new Pracownik{nazwisko="Nowak",imie="Jan" },
+                                                           new Pracownik{nazwisko="Kos",imie="Piotr" },
+                                                           new Pracownik{nazwisko="Nowy",imie="Damnian" } });
+            ludzie["Sala"].Add(new Pracownik { nazwisko = "Kos", imie = "Wiktor" });
+
+
+            ludzie.Add("Bar", new List<Pracownik>() { new Pracownik { nazwisko="Dukan", imie="Ola"},
+                                                     new Pracownik { nazwisko="Dukan", imie="Ala"}});
+
+
+            foreach (var a in ludzie)
+            {
+                foreach (var item in a.Value)
+                {
+                    Console.WriteLine(a.Key + " - " + item.nazwisko + " " + item.imie);
+                }
+                Console.WriteLine();
+
+                
+            }
+
+            Console.WriteLine("Pracownicy baru: ");
+
+            foreach (var pom in ludzie["Bar"])
+            {
+                Console.WriteLine("{0}  {1}", pom.imie, pom.nazwisko);
+            }
+        }
+        private static void slownik()
+        {
+
+            Dictionary<string, Pracownik> ludzie = new Dictionary<string, Pracownik>();
+
+            ludzie.Add("Kowal", new Pracownik { nazwisko = "Kowal", imie = "Jan" });
+            ludzie.Add("Kowalski", new Pracownik { nazwisko = "Kowalski", imie = "Piotr" });
+            ludzie.Add("Kowalczyk", new Pracownik { nazwisko = "Kowalczyk", imie = "Tomasz" });
+
+            var sb = ludzie["Kowalski"];
+
+            foreach (var a in ludzie)
+            {
+
+                Console.WriteLine("{0} - {1} {2}", a.Key, a.Value.nazwisko, a.Value.imie);
+                Console.WriteLine();
+            }
+            {
 
             }
-	{
-
-	}
-
-
-}
+        }
         private static void Linkedlist1()
         {
             LinkedList<int> lista = new LinkedList<int>();
