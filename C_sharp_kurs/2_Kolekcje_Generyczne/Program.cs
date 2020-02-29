@@ -10,8 +10,8 @@ namespace _2_Kolekcje_Generyczne
     {
         static void Main(string[] args)
 
-        {/*
-           List< Pracownik> pracownicy = new List<Pracownik>
+        {
+         /*  List< Pracownik> pracownicy = new List<Pracownik>
             {
                 new Pracownik{imie ="krol",nazwisko="AVB"  },
                 new Pracownik{imie ="pop",nazwisko="AVB"  },
@@ -44,17 +44,40 @@ namespace _2_Kolekcje_Generyczne
             // Stos();
             //hash();
             // Linkedlist();
+            //Linkedlist1();
 
+            Dictionary<string,Pracownik> ludzie = new Dictionary<string, Pracownik>();
+
+            ludzie.Add("Kowal",new Pracownik{nazwisko="Kowal",imie="Jan"});
+            ludzie.Add("Kowalski",new Pracownik{nazwisko="Kowalski",imie="Piotr"});
+            ludzie.Add("Kowalczyk",new Pracownik{nazwisko="Kowalczyk",imie="Tomasz"});
+
+           var sb=ludzie["Kowalski"];
+
+            foreach (var a in ludzie){
+            
+            Console.WriteLine("{0} - {1} {2}",a.Key,a.Value.nazwisko,a.Value.imie);
+
+            }
+	{
+
+	}
+
+
+}
+        private static void Linkedlist1()
+        {
             LinkedList<int> lista = new LinkedList<int>();
             lista.AddFirst(1);
             lista.AddFirst(2);
             lista.AddFirst(3);
-
+        
             var a = lista.First;
 
             lista.AddAfter(a, 9);
-            lista.AddBefore(a, 6);
-
+           lista.AddBefore(a,8);
+          
+          
             var p = lista.First;
             while (p != null)
             {
