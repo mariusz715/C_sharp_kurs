@@ -46,42 +46,120 @@ namespace _2_Kolekcje_Generyczne
             // Linkedlist();
             //Linkedlist1();
             //slownik();
+            //dictionary();
+            //SortedDictionary();
+            //SortedList();
 
 
-           
-            
+            var set = new SortedSet<string>();
+
+            set.Add("Sacha");
+            set.Add("Zielinski");
+            set.Add("Esmund");
+            set.Add("Salabura");
+            set.Add("Kosiba");
+            set.Add("Damian");
+
+            foreach(var z in set)
+            {
+                Console.WriteLine(z);
+
+            }
+
+        }
+
+        private static void SortedList()
+        {
+            var lista_posortowana = new SortedList<string, List<Pracownik>>();
+
+            lista_posortowana.Add("zarzad", new List<Pracownik> { new Pracownik { nazwisko = "Stan", imie = "Roman" },
+                                                                { new Pracownik{nazwisko="Kulesza", imie = "Andrzej"} },
+
+            });
+            lista_posortowana.Add("sklep", new List<Pracownik> { new Pracownik { nazwisko = "Roman", imie = "Stan" },
+                                                                { new Pracownik{nazwisko="Kondrat", imie = "Andrzej"} },
+
+            });
+            lista_posortowana.Add("bar", new List<Pracownik> { new Pracownik { nazwisko = "Sum", imie = "Adrian" },
+                                                             {new Pracownik{nazwisko="Homer",imie = "Lipa" }},
+            });
+
+            foreach (var it in lista_posortowana)
+            {
+                Console.WriteLine("Liczba pracownikow dzialu {0} : {1}", it.Key, it.Value.Count);
+                Console.WriteLine("Pracownicy dzialu {0}: ", it.Key);
+                foreach (var tt in it.Value)
+                {
+                    Console.WriteLine(tt.nazwisko + " " + tt.imie);
+                }
+                Console.WriteLine();
+            }
+        }
+
+        private static void SortedDictionary()
+        {
+            var pracownicy = new SortedDictionary<string, List<Pracownik>>();
+
+            pracownicy.Add("sprzedarz", new List<Pracownik> { new Pracownik { nazwisko = "Kowal", imie = "Mateusz" },
+                                                            { new Pracownik{nazwisko="Tomczyk",imie="Jan"} },
+                                                            { new Pracownik{nazwisko="Kukla",imie ="Piotr"} }}); ;
+
+            pracownicy.Add("ksiegowosc", new List<Pracownik> { new Pracownik { nazwisko = "Opacz", imie = "Ola" },
+                                                             { new Pracownik{nazwisko="Kulej",imie="Damian" } } });
+
+            pracownicy.Add("zarzad", new List<Pracownik> { new Pracownik { nazwisko = "Sacha", imie = "Marian" } ,
+                                                         { new Pracownik{nazwisko="Raikkonen",imie="Janne" } },
+                                                         { new Pracownik{nazwisko="Dymek",imie="Jarek" } },
+                                                         { new Pracownik{nazwisko="Adams",imie="Scot"} }
+            });
+
+
+            foreach (var zm in pracownicy)
+            {
+                Console.WriteLine("Ilosc pracownikow dzialu  {0}: {1}", zm.Key, zm.Value.Count);
+                Console.WriteLine("Pracownicy dzialu {0}", zm.Key);
+                foreach (var z in zm.Value)
+                {
+                    Console.WriteLine(z.nazwisko + " " + z.imie);
+                }
+            }
+        }
+
+        private static void dictionary()
+            {
+
 
                 Dictionary<string, List<Pracownik>> ludzie = new Dictionary<string, List<Pracownik>>();
 
-            ludzie.Add("Sala", new List<Pracownik>(){new Pracownik{nazwisko="Nowak",imie="Piotr" },
+                ludzie.Add("Sala", new List<Pracownik>(){new Pracownik{nazwisko="Nowak",imie="Piotr" },
                                                            new Pracownik{nazwisko="Nowak",imie="Jan" },
                                                            new Pracownik{nazwisko="Kos",imie="Piotr" },
                                                            new Pracownik{nazwisko="Nowy",imie="Damnian" } });
-            ludzie["Sala"].Add(new Pracownik { nazwisko = "Kos", imie = "Wiktor" });
+                ludzie["Sala"].Add(new Pracownik { nazwisko = "Kos", imie = "Wiktor" });
 
 
-            ludzie.Add("Bar", new List<Pracownik>() { new Pracownik { nazwisko="Dukan", imie="Ola"},
+                ludzie.Add("Bar", new List<Pracownik>() { new Pracownik { nazwisko="Dukan", imie="Ola"},
                                                      new Pracownik { nazwisko="Dukan", imie="Ala"}});
 
 
-            foreach (var a in ludzie)
-            {
-                foreach (var item in a.Value)
+                foreach (var a in ludzie)
                 {
-                    Console.WriteLine(a.Key + " - " + item.nazwisko + " " + item.imie);
+                    foreach (var item in a.Value)
+                    {
+                        Console.WriteLine(a.Key + " - " + item.nazwisko + " " + item.imie);
+                    }
+                    Console.WriteLine();
+
+
                 }
-                Console.WriteLine();
 
-                
-            }
+                Console.WriteLine("Pracownicy baru: ");
 
-            Console.WriteLine("Pracownicy baru: ");
-
-            foreach (var pom in ludzie["Bar"])
-            {
-                Console.WriteLine("{0}  {1}", pom.imie, pom.nazwisko);
-            }
-        }
+                foreach (var pom in ludzie["Bar"])
+                {
+                    Console.WriteLine("{0}  {1}", pom.imie, pom.nazwisko);
+                }
+            } 
         private static void slownik()
         {
 
