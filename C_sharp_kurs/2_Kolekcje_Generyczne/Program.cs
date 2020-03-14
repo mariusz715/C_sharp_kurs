@@ -97,7 +97,7 @@ namespace _2_Kolekcje_Generyczne
             {
 
                 Console.WriteLine("{0} - {1} {2}", a.Key, a.Value.nazwisko, a.Value.imie);
-                Console.WriteLine();
+                Console.WriteLine(); 
             }
             {
 
