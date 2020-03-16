@@ -49,8 +49,73 @@ namespace _2_Kolekcje_Generyczne
             //dictionary();
             //SortedDictionary();
             //SortedList();
+            // SortedSet();
+            // SortedSet_duplikat_sortowanie();
 
 
+            var sklad = new Dzial_Kolekcja();
+
+        
+
+            sklad.Add("Sprzedarz", new Pracownik { nazwisko = "Kowalczyk", imie = "Adam" })
+                 .Add("Sprzedarz",new Pracownik { nazwisko = "Dulski", imie = "Karol" })
+                 .Add("Sprzedarz",new Pracownik { nazwisko = "Stasiow", imie = "Wiktor" })
+                 .Add("Sprzedarz",new Pracownik { nazwisko = "Kowalczyk", imie = "Adam" });
+
+
+          
+
+            sklad.Add("Marketing",new Pracownik { nazwisko = "Urban", imie = "Jacek" })
+                 .Add("Marketing",new Pracownik { nazwisko = "Iwanski", imie = "Piotr" })
+                 .Add("Marketing",new Pracownik { nazwisko = "Urban", imie = "Jacek" });
+
+
+            foreach (var rewir in sklad)
+            {
+                Console.WriteLine("\n"+"Dzial: " + rewir.Key+"\n");
+
+                foreach (var pracownik in rewir.Value)
+                {
+                    Console.WriteLine("\t" + pracownik.nazwisko + " " + pracownik.imie);
+                }
+
+            }
+
+        }
+
+        private static void SortedSet_duplikat_sortowanie()
+        {
+            var sklad = new SortedDictionary<string, SortedSet<Pracownik>>();
+
+            sklad.Add("Sprzedarz", new SortedSet<Pracownik>(new Pracownik_Comparer()));
+
+            sklad["Sprzedarz"].Add(new Pracownik { nazwisko = "Kowalczyk", imie = "Adam" });
+            sklad["Sprzedarz"].Add(new Pracownik { nazwisko = "Dulski", imie = "Karol" });
+            sklad["Sprzedarz"].Add(new Pracownik { nazwisko = "Stasiow", imie = "Wiktor" });
+            sklad["Sprzedarz"].Add(new Pracownik { nazwisko = "Kowalczyk", imie = "Adam" });
+
+
+            sklad.Add("Marketing", new SortedSet<Pracownik>(new Pracownik_Comparer()));
+
+            sklad["Marketing"].Add(new Pracownik { nazwisko = "Urban", imie = "Jacek" });
+            sklad["Marketing"].Add(new Pracownik { nazwisko = "Iwanski", imie = "Piotr" });
+            sklad["Marketing"].Add(new Pracownik { nazwisko = "Urban", imie = "Jacek" });
+
+
+            foreach (var rewir in sklad)
+            {
+                Console.WriteLine("Dzial: " + rewir.Key);
+
+                foreach (var pracownik in rewir.Value)
+                {
+                    Console.WriteLine("\t" + pracownik.nazwisko + " " + pracownik.imie);
+                }
+
+            }
+        }
+
+        private static void SortedSet()
+        {
             var set = new SortedSet<string>();
 
             set.Add("Sacha");
@@ -60,12 +125,11 @@ namespace _2_Kolekcje_Generyczne
             set.Add("Kosiba");
             set.Add("Damian");
 
-            foreach(var z in set)
+            foreach (var z in set)
             {
                 Console.WriteLine(z);
 
             }
-
         }
 
         private static void SortedList()
