@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS0278: Typ nie zawiera implementacji wzorca kolekcji; składowe są niejednoznaczne
+dotnet_diagnostic.CS0278.severity = none
